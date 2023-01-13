@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="mdk-box mdk-box--bg-primary bg-dark js-mdk-box mb-0" data-effects="parallax-background blend-background">
+                <div class="mdk-box__bg">
+                    <div class="mdk-box__bg-front" style="background-image: url(assets/images/1280_work-station-straight-on-view.jpg);"></div>
+                </div>
+                <div class="mdk-box__content justify-content-center">
+                    <div class="hero container page__container text-center py-112pt">
+                        <h1 class="text-white text-shadow">Events</h1>
+                        <p class="lead measure-hero-lead mx-auto text-white text-shadow mb-0">Free resources and inspiration on hot topics with articles, talks, podcasts, developer resources and more.</p>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-section bg-white border-bottom-2">
+                <div class="container page__container">
+
+                    <!--div class="text-center d-flex align-items-center flex-wrap mb-32pt" style="white-space: nowrap;">
+                        <h5 class="mr-24pt mb-md-0 d-md-inline-block">Popular topics</h5>
+                        
+                        <a href="#" class="chip mb-16pt mb-md-0 chip-secondary">Design</a>
+                        <a href="#" class="chip mb-16pt mb-md-0 chip-outline-secondary">Development</a>
+                        <a href="#" class="chip mb-16pt mb-md-0 chip-outline-secondary">Photography</a>
+                        <a href="#" class="chip mb-16pt mb-md-0 chip-outline-secondary d-md-none d-lg-inline-flex">Business</a>
+                       
+                    </div -->
+
+                    <!--div class="row card-group-row">
+{% for event in events %}
+                    	 <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="{{event.imageURL.url}}" alt="">
+          <div class="card-body">
+            <h4 class="card-title">{{event.name}}</h4>
+            <p class="card-text">{{event.description}}</p>
+          </div>
+          <div class="card-footer">
+            <a href="/details/{{event.id}}" class="btn btn-primary">Find Out More</a>
+          </div>
+        </div>
+      </div>
+              {% endfor %}          
+                        </div-->
+                        	{%for event in events %}
+                        <div class="card-media">
+    <!-- media container -->
+    <div class="card-media-object-container">
+      <div class="card-media-object" style="background-image: url({{event.imageURL}});"></div>
+      <span class="card-media-object-tag subtle">Selling Fast</span>
+      <ul class="card-media-object-social-list">
+        <li>
+          <img src="https://s10.postimg.cc/3rjjbzcvd/profile_f.jpg" class="">
+        </li>
+        <li>
+          <img src="https://s16.postimg.cc/b0j0djh79/profile_0_f.jpg" class="">
+        </li>
+        <li class="card-media-object-social-list-item-additional">
+          <span>+2</span>
+        </li>
+      </ul>
+    </div>
+    <!-- body container -->
+    <div class="card-media-body">
+      <div class="card-media-body-top">
+        <span class="subtle">{{event.date}}</span>
+        <div class="card-media-body-top-icons u-float-right">
+          <svg fill="#888888" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
+          </svg>
+          <svg fill="#888888" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"/>
+            <path d="M0 0h24v24H0z" fill="none"/>
+          </svg>
+        </div>
+      </div>
+           <span class="card-media-body-heading">{{event.name}}</span>
+           <span class="card-media-body-heading">{{event.description}}</span>
+      <div class="card-media-body-supporting-bottom">
+        <span class="card-media-body-supporting-bottom-text subtle">{{event.location}}</span>
+        <span class="card-media-body-supporting-bottom-text subtle u-float-right">Free &ndash; $30</span>
+      </div>
+      <div class="card-media-body-supporting-bottom card-media-body-supporting-bottom-reveal">
+        <span class="card-media-body-supporting-bottom-text subtle">#OnlineWorkshop</span>
+        <a href="/details/{{event.id}}" class="card-media-body-supporting-bottom-text card-media-link u-float-right">VIEW TICKETS</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %} 
+  <!--div class="card-media">
+    <!-- media container ->
+    <div class="card-media-object-container">
+      <div class="card-media-object" style="background-image: url(https://s16.postimg.cc/x8m99xtgl/tyco_f.jpg);"></div>
+      <ul class="card-media-object-social-list">
+        <li>
+          <img src="https://s13.postimg.cc/c5aoiq1w7/stock3_f.jpg" class="">
+        </li>
+      </ul>
+    </div>
+    <!-- body container ->
+    <div class="card-media-body">
+      <div class="card-media-body-top">
+        <span class="subtle">Mon, APR 09, 7:00 PM</span>
+        <div class="card-media-body-top-icons u-float-right">
+          <svg fill="#888888" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
+          </svg>
+          <svg fill="#888888" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"/>
+            <path d="M0 0h24v24H0z" fill="none"/>
+          </svg>
+        </div>
+      </div>
+      <span class="card-media-body-heading">DAY // NIGHT - Tycho (Live) w/ Gold Panda, Com Truise + More at 1015 Folsom</span>
+      <div class="card-media-body-supporting-bottom">
+        <span class="card-media-body-supporting-bottom-text subtle">1015 Folsom, San Francisco, CA</span>
+        <span class="card-media-body-supporting-bottom-text subtle u-float-right">$25 &ndash; $80</span>
+      </div>
+      <div class="card-media-body-supporting-bottom card-media-body-supporting-bottom-reveal">
+        <span class="card-media-body-supporting-bottom-text subtle">#Music #Performance</span>
+        <a href="#/" class="card-media-body-supporting-bottom-text card-media-link u-float-right">VIEW TICKETS</a>
+      </div>
+    </div>
+  </div-->
+
+                        <!--div class="col-md-6 col-lg-4 card-group-row__col">
+
+                            <div class="card card--elevated posts-card-popular overlay card-group-row__card">
+                                <img src="" alt="" class="card-img">
+                                <div class="fullbleed bg-primary" style="opacity: .5"></div>
+                                <div class="posts-card-popular__content">
+                                    <div class="card-body d-flex align-items-center">
+                                        <div class="avatar-group flex">
+                                            <div class="avatar avatar-xs" data-toggle="tooltip" data-placement="top" title="">
+                                                <a href=""><img src="{{event.imageURL}}" alt="Avatar" class="avatar-img rounded-circle"></a>
+                                            </div>
+                                        </div>
+                                        <img src="{{event.imageURL}}" alt="Avatar" class="avatar-img rounded-circle">
+                                        <a style="text-decoration: none;" class="d-flex align-items-center" href="#"><i class="material-icons mr-1" style="font-size: inherit;">remove_red_eye</i></a>
+                                    </div>
+                                    <div class="posts-card-popular__title card-body">
+                                        <small class="text-muted text-uppercase">event</small>
+                                        <a class="card-title" href="">{{event.name}}</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div-->
+                        
+                       
+                        
+                    </div>
+
+{% endblock content %}

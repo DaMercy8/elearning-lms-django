@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+            <div class="mdk-box mdk-box--bg-primary bg-dark js-mdk-box mb-0" data-effects="parallax-background blend-background">
+                <div class="mdk-box__bg">
+                    <div class="mdk-box__bg-front" style="background-image: url(assets/images/1280_work-station-straight-on-view.jpg);"></div>
+                </div>
+                <div class="mdk-box__content justify-content-center">
+                    <div class="hero container page__container text-center py-112pt">
+                        <h1 class="text-white text-shadow">Get Inspired</h1>
+                        <p class="lead measure-hero-lead mx-auto text-white text-shadow mb-0">Free resources and inspiration on hot topics with articles, talks, podcasts, developer resources and more.</p>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-section bg-white border-bottom-2">
+                <div class="container page__container">
+
+                    <div class="text-center d-flex align-items-center flex-wrap mb-32pt" style="white-space: nowrap;">
+                        <h5 class="mr-24pt mb-md-0 d-md-inline-block">Popular topics</h5>
+                        {% for category in categories %}
+                        <a href="#" class="chip mb-16pt mb-md-0 chip-secondary">Design</a>
+                        <a href="#" class="chip mb-16pt mb-md-0 chip-outline-secondary">Development</a>
+                        <a href="#" class="chip mb-16pt mb-md-0 chip-outline-secondary">Photography</a>
+                        <a href="#" class="chip mb-16pt mb-md-0 chip-outline-secondary d-md-none d-lg-inline-flex">Business</a>
+                        {% endfor %}
+                    </div>
+
+                    <div class="row card-group-row">
+                        {% for blog in object_list %}
+                        <div class="col-md-6 col-lg-4 card-group-row__col">
+
+                            <div class="card card--elevated posts-card-popular overlay card-group-row__card">
+                                <img src="{{blog.blog_pic.url}}" alt="" class="card-img">
+                                <div class="fullbleed bg-primary" style="opacity: .5"></div>
+                                <div class="posts-card-popular__content">
+                                    <div class="card-body d-flex align-items-center">
+                                        <div class="avatar-group flex">
+                                            <div class="avatar avatar-xs" data-toggle="tooltip" data-placement="top" title="{{blog.author.username}}">
+                                                <a href="{% url 'detail-blog' pk=blog.pk %}"><img src="{{blog.blog_pic.url}}" alt="Avatar" class="avatar-img rounded-circle"></a>
+                                            </div>
+                                        </div>
+                                        <a style="text-decoration: none;" class="d-flex align-items-center" href="#"><i class="material-icons mr-1" style="font-size: inherit;">remove_red_eye</i></a>
+                                    </div>
+                                    <div class="posts-card-popular__title card-body">
+                                        <small class="text-muted text-uppercase">{{blog.category}}</small>
+                                        <a class="card-title" href="{% url 'detail-blog' pk=blog.pk %}">{{blog.title}}</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        {% endfor %}
+                        
+                    </div>
+
+
+                    <ul class="pagination justify-content-start pagination-xsm m-0">
+                        {% if page_obj.has_previous %}
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true" class="material-icons">chevron_left</span>
+                            <span>Prev</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.number }}" aria-label="Page 1">
+                            <span>{{ page_obj.number }}</span>
+                        </a>
+                    </li>
+                    {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Page 2">
+                            <span>{{ page_obj.next_page_number }}</span>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                            <span>Next</span>
+                            <span aria-hidden="true" class="material-icons">chevron_right</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+
+                </div>
+            </div>
+            
+{% endblock %}        
+
+{% block scripts %}
+    <script>
+        (function() {
+            'use strict';
+
+            // ENABLE sidebar menu tabs
+            $('.js-sidebar-mini-tabs [data-toggle="tab"]').on('click', function(e) {
+                e.preventDefault()
+                $(this).tab('show')
+            })
+
+            $('.js-sidebar-mini-tabs').on('show.bs.tab', function(e) {
+                $('.js-sidebar-mini-tabs > .active').removeClass('active')
+                $(e.target).parent().addClass('active')
+            })
+        })()
+    </script>
+
+{% endblock %}
